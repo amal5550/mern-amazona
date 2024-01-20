@@ -1,3 +1,4 @@
+import data from './data';
 
 function App() {
   return (
@@ -5,7 +6,16 @@ function App() {
       <header className="App-header">
         <a href="/">amazona</a>
       </header>
-      <main>list products</main>
+      <main>
+        <h1>Featured products</h1>
+        {data.products.map((products) => (
+          <div>
+            <img src={products.image} alt={products.name}></img>
+            <p> {products.name} </p>
+            <p> {products.price} </p>
+          </div>
+        ))}
+      </main>
     </div>
   );
 }
