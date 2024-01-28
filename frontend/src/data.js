@@ -39,7 +39,6 @@ const data = {
       description: 'high quality Product',
     },
     {
-  
       name: 'Adidas Fit Pant',
       slug: 'Adidas-Fit-Pant',
       category: 'Pants',
