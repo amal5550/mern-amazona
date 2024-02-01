@@ -1,6 +1,6 @@
-import ProductScreen from './Screens/ProductScreen';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomeScreen from './Screens/HomeScreen';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import HomeScreen from 'C:/amazona/frontend/src/Screens/HomeScreen';
+import ProductScreen from 'C:/amazona/frontend/src/Screens/ProductScreen';
 import Navbar from 'react-bootstrap/Navbar';
 import Badge from 'react-bootstrap/Badge';
 import Nav from 'react-bootstrap/Nav';
@@ -8,13 +8,14 @@ import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useContext } from 'react';
 import { Store } from './Store';
-import { Link } from 'react-router-dom';
+import CartScreen from 'C:/amazona/frontend/src/Screens/CartScreen';
+
 function App() {
   const { state } = useContext(Store);
   const { cart } = state;
   return (
     <BrowserRouter>
-      <div className='d-flex flex-column site-container'>
+      <div className="d-flex flex-column site-container">
         <header>
           <Navbar bg="dark" variant="dark">
             <Container>
@@ -26,7 +27,7 @@ function App() {
                   Cart
                   {cart.cartItems.length > 0 && (
                     <Badge pill bg="danger">
-                       {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                     </Badge>
                   )}
                 </Link>
@@ -38,6 +39,7 @@ function App() {
           <Container className="mt-3">
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
+              <Route path="/cart" element={<CartScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
@@ -49,5 +51,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;
